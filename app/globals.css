@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-coffee-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-coffee-700 hover:bg-coffee-800 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-coffee-700 text-coffee-700 hover:bg-coffee-700 hover:text-white px-8 py-3 rounded-full font-medium transition-all duration-300;
+  }
+  
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-coffee-700 to-coffee-500 bg-clip-text text-transparent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bg-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(191, 160, 148, 0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+  
+  /* Toggle Switch Styles */
+  .toggle {
+    @apply relative w-12 h-6 bg-coffee-200 rounded-full appearance-none cursor-pointer transition-colors duration-300;
+  }
+  
+  .toggle:checked {
+    @apply bg-amber-600;
+  }
+  
+  .toggle::before {
+    content: '';
+    @apply absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-300;
+  }
+  
+  .toggle:checked::before {
+    @apply transform translate-x-6;
+  }
+}
