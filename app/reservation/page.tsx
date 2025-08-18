@@ -380,13 +380,9 @@ export default function ReservationPage() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <img
-                  src="https://i.imgur.com/YourLogoId.png"
+                  src="/logo.png"
                   alt="Indian Coffee House Logo"
                   className="w-10 h-10 rounded-full object-cover"
-                  onError={(e) => {
-                    // Fallback to a placeholder if image fails to load
-                    e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='95' fill='%23f5f5dc' stroke='%23654321' stroke-width='10'/%3E%3Ctext x='100' y='70' text-anchor='middle' font-family='serif' font-size='24' font-weight='bold' fill='%23654321'%3EINDIAN%3C/text%3E%3Ctext x='100' y='95' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%23654321'%3ECOFFEE%3C/text%3E%3Ctext x='100' y='120' text-anchor='middle' font-family='serif' font-size='20' font-weight='bold' fill='%23654321'%3EHOUSE%3C/text%3E%3Ctext x='100' y='150' text-anchor='middle' font-family='serif' font-size='14' fill='%23654321'%3ERESTAURANT%3C/text%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='%23b22222' stroke-width='4'/%3E%3C/svg%3E"
-                  }}
                 />
                 <span className="font-serif text-xl font-bold">Indian Coffee House</span>
               </div>
