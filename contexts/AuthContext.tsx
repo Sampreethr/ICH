@@ -1,13 +1,15 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react'
-import { Models } from 'appwrite'
+import { Models, OAuthProvider } from 'appwrite'
 
 interface AuthContextType {
   user: Models.User<Models.Preferences> | null
   login: (email: string, password: string) => Promise<void>
+  loginWithGoogle: () => Promise<void>
   register: (email: string, password: string, name: string, additionalData?: any) => Promise<void>
   logout: () => Promise<void>
+  checkAuth: () => Promise<void>
   loading: boolean
 }
 
@@ -87,6 +89,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
+  const loginWithGoogle = async () => {
+    try {
+      const { account } = await import('../lib/appwrite')
+      
+      // Create OAuth2 session with Google
+      // This will redirect to Google's OAuth page
+      account.createOAuth2Session(
+        OAuthProvider.Google,
+        `${window.location.origin}/auth/callback`, // Success redirect
+        `${window.location.origin}/login?error=oauth_failed` // Failure redirect
+      )
+    } catch (error) {
+      console.error('Google OAuth error:', error)
+      throw error
+    }
+  }
+
   const logout = async () => {
     try {
       const { account } = await import('../lib/appwrite')
@@ -101,8 +120,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const value = {
     user,
     login,
+    loginWithGoogle,
     register,
     logout,
+    checkAuth,
     loading
   }
 
