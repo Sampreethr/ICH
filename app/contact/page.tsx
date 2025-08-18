@@ -347,11 +347,13 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <img 
-                  src="/logo.png" 
-                  alt="Indian Coffee House Logo"
-                  className="w-10 h-10 rounded-full object-cover"
-                />
+                <div className="w-10 h-10 rounded-full overflow-hidden bg-white border-2 border-amber-100 shadow-sm">
+                    <img 
+                        src="/logo.png" 
+                        alt="Indian Coffee House Logo"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
                 <span className="font-serif text-xl font-bold">Indian Coffee House</span>
               </div>
               <p className="text-cream-200 mb-4">

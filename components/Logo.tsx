@@ -23,14 +23,16 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
 
   return (
     <div className={`${sizeClasses[size]} ${className} relative`}>
-      <Image
-        src="/logo.png"
-        alt="Indian Coffee House Logo"
-        width={sizePixels[size]}
-        height={sizePixels[size]}
-        className="w-full h-full object-contain"
-        priority
-      />
+      <div className="w-full h-full rounded-full overflow-hidden bg-white shadow-md border-2 border-amber-100 hover:shadow-lg transition-shadow duration-300">
+        <Image
+          src="/logo.png"
+          alt="Indian Coffee House Logo"
+          width={sizePixels[size]}
+          height={sizePixels[size]}
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          priority
+        />
+      </div>
     </div>
   )
 }
